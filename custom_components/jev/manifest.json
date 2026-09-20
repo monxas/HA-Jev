@@ -8,7 +8,7 @@
   "documentation": "https://github.com/AboveColin/HA-Jev",
   "integration_type": "service",
   "iot_class": "cloud_polling",
-  "issue_tracker": "https://github.com/AboveColin/HA-Jev/issues",
+  "issue_tracker": "https://github.com/monxas/HA-Jev/issues",
   "requirements": ["jevclient==1.1.0"],
-  "version": "1.10.0"
+  "version": "1.10.0-monxas.1"
 }
