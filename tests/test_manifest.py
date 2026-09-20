@@ -39,7 +39,17 @@ def test_hacs_minimum_matches_what_the_code_needs():
 
 
 def test_the_version_is_a_release_version():
-    assert re.fullmatch(r"\d+\.\d+\.\d+", MANIFEST["version"])
+    """Upstream ships X.Y.Z. This fork ships X.Y.Z-monxas.N built on top of it.
+
+    The suffix is not cosmetic: HACS tells releases apart by version, so a fork
+    that reused upstream's number would be indistinguishable from it in the
+    update UI. AwesomeVersion reads the suffix as SEMVER and orders our own
+    iterations correctly, and hassfest accepts it.
+
+    The upstream form is still allowed, so a branch that has not been
+    repackaged yet passes unchanged.
+    """
+    assert re.fullmatch(r"\d+\.\d+\.\d+(-monxas\.\d+)?", MANIFEST["version"])
 
 
 def test_the_conversation_requirements_match_what_home_assistant_pins():
